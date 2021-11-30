@@ -39,7 +39,7 @@ const Home = () => {
             </div>
             <div className = 'title'>I am a &nbsp;
             {count ? (
-              <Typist avgTypingDelay={50} onTypingDone={() => setCount(0)}>
+              <Typist avgTypingDelay={50} onTypingDone={() =>  setTimeout(setCount(0), 3000)}>
                 <b>
                   <span>Software Engineer ⚙️</span>
                   <Typist.Backspace count={20} delay={800} />
