@@ -55,7 +55,7 @@ const Home = () => {
             <div className = 'location'><i className="fa fa-map-marker pin"/>Toronto <span role="img" aria-label="Canada">  🇨🇦</span></div>
           </div>
           <div className = 'about'>
-              I'm a {age}-year-old, Chinese-Canadian.
+              I am a {age}-year-old, Chinese-Canadian.
             <br/>
               My passion is to work with talented individuals and solve complex problems with simple, elegant solutions.
             <br/>
