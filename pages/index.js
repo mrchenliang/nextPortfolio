@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from 'react';
+import Head from "next/head"
+
 import 'font-awesome/css/font-awesome.css';
 import Typist from 'react-typist';
 import Image from 'next/image';
@@ -22,6 +24,11 @@ const Home = () => {
   }, [count]);
 
   return (
+    <>
+    <Head>
+      <title>Chen Liang | Full Stack Software Engineer</title>
+      <meta name="description" content="Chen is a software engineer. His passion is to work with talented individuals and solve complex problems with simple, elegant solutions." />
+    </Head>
     <div className={"home-page", `${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <header className="home-header">
       <ParticleComponent color={darkMode ?  '#fff' : '#333'}/>
@@ -52,7 +59,10 @@ const Home = () => {
                 ""
               )}
           </div>
-            <div className = 'location'><i className="fa fa-map-marker pin"/>Toronto <span role="img" aria-label="Canada">  🇨🇦</span></div>
+            <div className = 'location'><i className="fa fa-map-marker pin"/>
+              Toronto <span role="img" aria-label="Canada">  🇨🇦</span> / 
+              San Francisco <span role="img" aria-label="USA">  🇺🇸 </span>
+            </div>
           </div>
           <div className = 'about'>
               I am a {age}-year-old, Chinese-Canadian.
@@ -74,6 +84,7 @@ const Home = () => {
       <Footer darkMode = {darkMode}/>
       </header>
     </div>
+    </>
   );
 };
 
