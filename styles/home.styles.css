@@ -58,6 +58,9 @@
   
   .title {
     line-height: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   
   .about, .hobbies {

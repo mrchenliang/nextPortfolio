@@ -1,7 +1,7 @@
 
-import React from 'react';
+import { useState, useEffect } from 'react';
 import 'font-awesome/css/font-awesome.css';
-import Typical from 'react-typical';
+import Typist from 'react-typist';
 import Image from 'next/image';
 
 import ParticleComponent from "../components/particles/ParticleComponent";
@@ -10,10 +10,16 @@ import Footer from "../components/footer/footer.component";
 
 const Home = () => {
 
-  const [darkMode, setDarkMode] = React.useState(true);
+  const [darkMode, setDarkMode] = useState(true);
+  const [count, setCount] = useState(1);
+
 
   const year = new Date(Date.now() - new Date("02/15/1995").getTime()).getUTCFullYear();  
   const age = Math.abs(year - 1970);  
+
+  useEffect(() => {
+    setCount(1);
+  }, [count]);
 
   return (
     <div className={"home-page", `${darkMode ? 'dark-mode' : 'light-mode'}`}>
@@ -31,19 +37,20 @@ const Home = () => {
                 My name is <b> Chen Liang</b>
               </div>
             </div>
-            <div className = 'title'>I am a {''}
-              <Typical 
-                loop={Infinity}
-                wrapper='b'
-                steps={[
-                  'Software Engineer ⚙️', 
-                  1000,
-                  'Full Stack Developer 💻',
-                  1000,
-                  'Mentor 👨‍🏫',
-                  1000,
-                ]}
-              />
+            <div className = 'title'>I am a &nbsp;
+            {count ? (
+              <Typist avgTypingDelay={50} onTypingDone={() => setCount(0)}>
+                <b>
+                  <span>Software Engineer ⚙️</span>
+                  <Typist.Backspace count={20} delay={800} />
+                  <span bold>Full Stack Developer 💻</span>
+                  <Typist.Backspace count={25} delay={1600} />
+                  <span bold>Coding BootCamp Mentor 👨‍🏫</span>
+                </b>
+              </Typist>
+              ) : (
+                ""
+              )}
           </div>
             <div className = 'location'><i className="fa fa-map-marker pin"/>Toronto <span role="img" aria-label="Canada">  🇨🇦</span></div>
           </div>
@@ -59,6 +66,7 @@ const Home = () => {
             <span role="img" aria-label="Tech"> 💻 |</span>
             <span role="img" aria-label="Beer"> 🍺 | </span>
             <span role="img" aria-label="Basketball"> 🏀 |</span> 
+            <span role="img" aria-label="Traveling"> ✈️ |</span> 
             <span role="img" aria-label="Coffee"> ☕️</span>
           </div>
         </div>
