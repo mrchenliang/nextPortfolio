@@ -29,8 +29,8 @@ const Home = () => {
       <title>Chen Liang | Full Stack Software Engineer</title>
       <meta name="description" content="Chen is a software engineer. His passion is to work with talented individuals and solve complex problems with simple, elegant solutions." />
     </Head>
-    <div className={"home-page"}>
-      <header className={"home-header"`${darkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={"home-page", `${darkMode ? 'dark-mode' : 'light-mode'}`}>
+      <header className="home-header">
       <ParticleComponent color={darkMode ?  '#fff' : '#333'}/>
       <div className = "home-content">
         <span className = 'toggle'>
